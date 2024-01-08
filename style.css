@@ -39,10 +39,12 @@ ul {
   margin: 0;
   padding: 0px;
 }
-li, h3 {
+li, 
+h3 {
   list-style: none;
 }
-input,button{
+input,
+button{
   outline: none;
 }
 .btn {
@@ -68,7 +70,9 @@ input,button{
   margin: 0;
   text-transform: uppercase;
 }
-.new-task__input, .incomplete-tasks__input--text, .completed-tasks__input--text {
+.new-task__input, 
+.incomplete-tasks__input--text, 
+.completed-tasks__input--text {
   margin: 0;
   font-size: 18px;
   line-height: 18px;
@@ -80,7 +84,9 @@ input,button{
   font-family: Lato, sans-serif;
   color: #888;
 }
-.new-task__input:focus, .incomplete-tasks__input--text:focus, .completed-tasks__input--text:focus {
+.new-task__input:focus, 
+.incomplete-tasks__input--text:focus, 
+.completed-tasks__input--text:focus {
   color: #333;
 }
 
@@ -94,7 +100,8 @@ input,button{
 }
 
 /* Task list */
-.incomplete-tasks__item, .completed-tasks__item {
+.incomplete-tasks__item, 
+.completed-tasks__item {
   overflow: hidden;
   padding: 20px 0;
   border-bottom: 1px solid #eee;
@@ -103,20 +110,26 @@ input,button{
   justify-content: space-between;
   align-items: center;
 }
-.incomplete-tasks__input, .incomplete-tasks__label, .btn, .completed-tasks__input, .completed-tasks__label {
+.incomplete-tasks__input, 
+.incomplete-tasks__label, 
+.btn, 
+.completed-tasks__input, 
+.completed-tasks__label {
   vertical-align: middle;
 }
 
 .incomplete-tasks__input {
   margin: 0 10px;
 }
-.incomplete-tasks__label, .completed-tasks__label {
+.incomplete-tasks__label, 
+.completed-tasks__label {
   padding-left: 10px;
   box-sizing: border-box;
   font-size: 18px;
   width: 226px;
 }
-.incomplete-tasks__input--text, .completed-tasks__input--text {
+.incomplete-tasks__input--text, 
+.completed-tasks__input--text {
   width: 226px;
 }
 .delete-btn__img {
