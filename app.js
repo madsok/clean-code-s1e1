@@ -133,11 +133,21 @@ var taskCompleted=function(){
 
     //Append the task list item to the #completed-tasks
     var listItem=this.parentNode;
-    listItem.className = "completed-tasks__item";
-    listItem.querySelector(".incomplete-tasks__input--checkbox").className = "completed-tasks__input completed-tasks__input--checkbox";
-    listItem.querySelector(".incomplete-tasks__label").className = "completed-tasks__label task-descr";
-    listItem.querySelector(".incomplete-tasks__input--text").className = "completed-tasks__input completed-tasks__input--text input-read-mode task-descr";
-    listItem.querySelector(".edit-btn").innerText = "Edit";
+        listCheckBox = listItem.querySelector(".incomplete-tasks__input--checkbox");
+        listLabel = listItem.querySelector(".incomplete-tasks__label"),
+        listInput = listItem.querySelector(".incomplete-tasks__input--text"),
+        listBtn = listItem.querySelector(".edit-btn");
+    listItem.classList.add("completed-tasks__item");
+    listItem.classList.remove("incomplete-tasks__item");
+    listCheckBox.classList.add("completed-tasks__input", "completed-tasks__input--checkbox");
+    listCheckBox.classList.remove("incomplete-tasks__input", "incomplete-tasks__input--checkbox");
+    listLabel.classList.add("completed-tasks__label");
+    listLabel.classList.remove("incomplete-tasks__label");
+    listInput.classList.add("completed-tasks__input", "completed-tasks__input--text");
+    listInput.classList.remove("incomplete-tasks__input", "incomplete-tasks__input--text");
+    if (listItem.classList.contains("edit-mode")) {
+        listBtn.innerText = "Save";
+    } 
     completedTasksHolder.appendChild(listItem);
     bindTaskEvents(listItem, taskIncomplete);
 
@@ -149,12 +159,22 @@ var taskIncomplete=function(){
 //Mark task as incomplete.
     //When the checkbox is unchecked
     //Append the task list item to the #incompleteTasks.
-    var listItem=this.parentNode;
-    listItem.className = "incomplete-tasks__item";
-    listItem.querySelector(".completed-tasks__input--checkbox").className = "incomplete-tasks__input incomplete-tasks__input--checkbox";
-    listItem.querySelector(".completed-tasks__label").className = "incomplete-tasks__label task-descr";
-    listItem.querySelector(".completed-tasks__input--text").className = "incomplete-tasks__input incomplete-tasks__input--text input-read-mode task-descr";
-    listItem.querySelector(".edit-btn").innerText = "Edit";
+    var listItem=this.parentNode,
+        listCheckBox = listItem.querySelector(".completed-tasks__input--checkbox");
+        listLabel = listItem.querySelector(".completed-tasks__label"),
+        listInput = listItem.querySelector(".completed-tasks__input--text"),
+        listBtn = listItem.querySelector(".edit-btn");
+    listItem.classList.add("incomplete-tasks__item");
+    listItem.classList.remove("completed-tasks__item");
+    listCheckBox.classList.remove("completed-tasks__input", "completed-tasks__input--checkbox");
+    listCheckBox.classList.add("incomplete-tasks__input", "incomplete-tasks__input--checkbox");
+    listLabel.classList.remove("completed-tasks__label");
+    listLabel.classList.add("incomplete-tasks__label");
+    listInput.classList.remove("completed-tasks__input", "completed-tasks__input--text");
+    listInput.classList.add("incomplete-tasks__input", "incomplete-tasks__input--text");
+    if (!listItem.classList.contains("edit-mode")) {
+        listBtn.innerText = "Edit";
+    } 
     incompleteTaskHolder.appendChild(listItem);
     bindTaskEvents(listItem,taskCompleted);
 }
